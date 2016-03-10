@@ -6,16 +6,16 @@
 
 int main(int argc, string argv[])
 {
-   if (argc != 2)
-       {
-           printf ("useage: ./a key");
-           return 1;
-       }
 
-       // need to add a check for the key being alphabetic character as well
-   
+    if (argc != 2)
+    {
+           printf ("useage: ./a key\n");
+            return 1;
+    }
+
    string key = argv[1];
-   
+
+  
    printf ("Please enter the text you wish to be encrypted: \n");
    string phrase = GetString();
 
@@ -29,7 +29,13 @@ int main(int argc, string argv[])
     /**while i is less than the length of the phrase, add one to i and one to j - i will be the current char of the phrase
     and j will be the current character of th keyphrase **/
 
-   { 
+   {
+    if (isalpha(key[j]) == 0)
+      {
+          printf ("useage: ./a key - use only alphabetic characters in the key\n");
+            return 1;
+      }
+
        if (isupper(key[j]))
        {
            key[j] = key[j] - 'A';
